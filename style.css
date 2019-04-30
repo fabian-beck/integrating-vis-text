@@ -1,17 +1,43 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 40em;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
-div.titleContainer {
+#titleContainer {
     font-size: 1.5em;
     text-align: center;
+    background-color: rgb(252, 242, 227);
+    padding: 1em 0;
 }
 
-div.title {
+#header {
+    height: 1.5em;
+    background-color: rgb(255, 236, 206);
+    text-align: center;
+    padding: 0.2em;
+    overflow: hidden;
+}
+
+#header.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#header.sticky + #content {
+    padding-top: 3em;
+}
+
+#title {
     font-size: 1.5em;
     margin-bottom: 1em;
+}
+
+#content {
+    margin: 1em auto;
+    max-width: 40em;
+    padding: 1em;
 }
 
 h1 {

@@ -1,0 +1,21 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 40em;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.4em;
+    font-weight: normal;
+    margin-top: 2.5em;
+}
+
+h2 {
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-top: 1.5em;
+}
+
+p {
+    text-align: justify;
+}

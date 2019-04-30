@@ -4,6 +4,16 @@ body {
     padding: 20px;
 }
 
+div.titleContainer {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+div.title {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
 h1 {
     font-size: 1.4em;
     font-weight: normal;

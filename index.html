@@ -14,11 +14,9 @@
 
         <h1>Introduction</h1>
 
-        <p>A <em>data visualization</em> is a visual representation of information encoded in <em>geometric primitives</em> that
-            we perceive, process, and interpret to consume the information.</p>
+        <p>A <em>data visualization</em> is a visual representation of information encoded in <em>geometric primitives</em> that we perceive, process, and interpret to consume the information.</p>
 
-        <p>A <em>text</em> is a visual representation of information encoded in <em>characters</em> that we perceive,
-            process, and interpret to consume the information.</p>
+        <p>A <em>text</em> is a visual representation of information encoded in <em>characters</em> that we perceive, process, and interpret to consume the information.</p>
 
         <p>The way of encoding might be different but visualization and text are hence similar in the sense that they both convey information to a human reader. Often, they are combined and complement each other as part of documents, user interfaces, presentation slides and the like. While this complementing similarity is certainly not a new observation, it still remains surprising to me how little the combination and close integration of the two modalities haven been investigated. With this book, I want to contribute to closing this gap.</p>
 
@@ -32,9 +30,42 @@
 
         <h2>Placing the Graphics</h2>
 
+        <!--p>in the sentence or at the end, in the line or between the lines, typesetting problems such as line wrapping</p-->
+
         <h2>Graphics in Tables and Lists</h2>
 
+        <p>While word-sized graphics were suggested and already used to some extent in texts, admittedly, they had their biggest breakthrough as parts of <keyword>tables</keyword> and <keyword>lists</keyword>. Especially, their introduction to <keyword>Microsoft Excel</keyword> in ... made them widely applied.</p>
+
+        <p>To give an example, <ref>table:table_without_sparklines</ref> shows citation statistics of some papers over time without any graphics, while <ref>table:table_with_sparklines</ref> displays the same information embedding word-sized graphics for the citation trendes.</p>
+
+        <table>
+            <caption>...</caption>
+            <label>table:table_without_sparklines</label>
+            <tr>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Citations</th>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </table>
+
+        <h2>Tools and Libraries</h2>
+
+        <ul>
+            <li><b>D3js:</b></li>
+            <li><b>jQuery Sparklines:</b></li>
+            <li><b>Microsoft Excel:</b></li>
+        </ul>
+
+        <h2>An Example in D3js</h2>
+
         <h1>Vis&ndash;Text Interaction</h1>
+
+        <p>Readers consume more and more text from screens and less and less from paper. Whereas I certainly still see advantages of paper and sometimes myself prefer reading longer text on papers, I also observe that an important feature of screens are not yet leveraged for documents: <em>interactivity</em>.</p>
 
         <h2>Local Interactions</h2>
 

@@ -86,3 +86,14 @@ table caption {
 table th, table td {
     padding: 0.1em 0.2em;
 }
+
+.generated {
+    background: #eee;
+    padding: 0.2em;
+}
+
+.generated::before {
+    content: "Automatically generated";
+    font-size: 0.7em;
+    float: right;
+}

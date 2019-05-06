@@ -55,3 +55,22 @@ h2 {
 p {
     text-align: justify;
 }
+
+table {
+    border-collapse: collapse;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+table tr:first-child th {
+    border-bottom: 1px solid black;
+}
+
+table caption {
+    margin-bottom: 0.2em
+}
+
+table th, table td {
+    padding: 0.1em 0.2em;
+}

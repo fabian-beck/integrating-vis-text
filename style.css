@@ -85,6 +85,7 @@ table caption {
 
 table th, table td {
     padding: 0.1em 0.2em;
+    font-size: 0.9em;
 }
 
 .generated {
@@ -93,7 +94,7 @@ table th, table td {
 }
 
 .generated::before {
-    content: "Automatically generated";
+    content: "Automatically generated content";
     font-size: 0.7em;
     float: right;
 }

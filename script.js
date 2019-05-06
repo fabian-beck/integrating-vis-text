@@ -1,4 +1,4 @@
-let titleObject = {
+const titleObject = {
     create() {
         let titleContainer = document.createElement('div');
         titleContainer.id = 'titleContainer';
@@ -14,7 +14,7 @@ let titleObject = {
     }
 }
 
-let headerObject = {
+const headerObject = {
     stickyOffset: 0,
     create() {
         let headerDiv = document.createElement('div');
@@ -37,6 +37,31 @@ let headerObject = {
     }
 }
 
+const tableReferenceManager = {
+    updateTableReferences() {
+        let tableCount = 0;
+        const tableLabelIndexMap = {};
+        document.querySelectorAll('table').forEach(table => {
+            const caption = table.querySelector('caption');
+            if (caption) {
+                tableCount++;
+                const label = table.getAttribute('data-label');
+                caption.innerHTML = `<a id="${label}"></a><b>Table ${tableCount}:</b> ${caption.innerHTML}`;
+                tableLabelIndexMap[label] = tableCount;
+            }
+        });
+        document.querySelectorAll('ref').forEach(ref => {
+            const index = tableLabelIndexMap[ref.innerHTML];
+            if (index) {
+                ref.innerHTML = `<a href="#${ref.innerHTML}">Table&nbsp;${index}</a>`;
+            }
+        });
+    }
+}
+
 document.body.prepend(headerObject.create());
 document.body.prepend(titleObject.create());
+
+tableReferenceManager.updateTableReferences();
+
 headerObject.initStickyHeader();

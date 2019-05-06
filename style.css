@@ -56,11 +56,23 @@ p {
     text-align: justify;
 }
 
+a {
+    color: #777;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 table {
+    margin-top: 2em;
+    width: 100%;
     border-collapse: collapse;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    width: 100%;
 }
 
 table tr:first-child th {

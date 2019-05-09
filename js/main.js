@@ -76,5 +76,6 @@ generatedWordStatisticsExample.generate();
 bibManager.createListOfReferences();
 
 tableReferenceManager.updateTableReferences();
+bibManager.updateCitations();
 
 headerObject.initStickyHeader();

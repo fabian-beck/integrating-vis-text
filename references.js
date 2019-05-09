@@ -1,0 +1,58 @@
+references = {
+    "Tufte2006Beautiful": {
+        "abstract": "Science and art have in common intense seeing, the wide-eyed observing that generates empirical information. Beautiful Evidence is about how seeing turns into showing, how empirical observations turn into explanations and evidence presentations. The book identifies excellent and effective methods for presenting information, suggests new designs, and provides tools for assessing the credibility of evidence presentations.Here we will see many close readings of serious evidence presentations-ranging through evolutionary trees and rocket science to economics, art history, and sculpture. Insistent application of the principles of analytical thinking helps both insiders and outsiders assess the credibility of evidence.",
+        "author": "Tufte, Edward R.",
+        "edition": "1st",
+        "howpublished": "Hardcover",
+        "isbn": "0961392177",
+        "keywords": "type:textbook, infographics, sparklines, domain:infovis",
+        "publisher": "Graphics Press",
+        "title": "Beautiful Evidence",
+        "type": "book",
+        "year": "2006"
+    },
+    "Beck2017WordSized2": {
+        "abstract": "Generating visualizations at the size of a word creates dense information representations often called sparklines. The integration of word-sized graphics into text could avoid additional cognitive load caused by splitting the readers\u2019 attention between figures and text. In scientific publications, these graphics make statements easier to understand and verify because additional quantitative information is available where needed. In this work, we perform a literature review to find out how researchers have already applied such word-sized representations. Illustrating the versatility of the approach, we leverage these representations for reporting empirical and bibliographic data in three application examples. For interactive Web-based publications, we explore levels of interactivity and discuss interaction patterns to link visualization and text. We finally call the visualization community to be a pioneer in exploring new visualization-enriched and interactive publication formats.",
+        "author": "Beck, Fabian and Weiskopf, Daniel",
+        "doi": "10.1109/TVCG.2017.2674958",
+        "journal": "IEEE Transactions on Visualization and Computer Graphics",
+        "keywords": "domain:infovis, domain:publishing, type:survey, type:theory, augmented_text, sparklines, interaction, bibliometrics, eye-tracking_visualization",
+        "number": "6",
+        "pages": "1576--1587",
+        "publisher": "IEEE",
+        "series": "TVCG",
+        "title": "Word-Sized Graphics for Scientific Texts",
+        "type": "article",
+        "volume": "23",
+        "year": "2017"
+    },
+    "Goffin2014Exploring": {
+        "abstract": "We present an exploration and a design space that characterize the usage and placement of word-scale visualizations within text documents. Word-scale visualizations are a more general version of sparklines-small, word-sized data graphics that allow meta-information to be visually presented in-line with document text. In accordance with Edward Tufte's definition, sparklines are traditionally placed directly before or after words in the text. We describe alternative placements that permit a wider range of word-scale graphics and more flexible integration with text layouts. These alternative placements include positioning visualizations between lines, within additional vertical and horizontal space in the document, and as interactive overlays on top of the text. Each strategy changes the dimensions of the space available to display the visualizations, as well as the degree to which the text must be adjusted or reflowed to accommodate them. We provide an illustrated design space of placement options for word-scale visualizations and identify six important variables that control the placement of the graphics and the level of disruption of the source text. We also contribute a quantitative analysis that highlights the effect of different placements on readability and text disruption. Finally, we use this analysis to propose guidelines to support the design and placement of word-scale visualizations.",
+        "author": "Goffin, Pascal and Willett, Wesley and Fekete, Jean-Daniel and Isenberg, Petra",
+        "doi": "10.1109/TVCG.2014.2346435",
+        "journal": "IEEE Transactions on Visualization and Computer Graphics",
+        "keywords": "augmented_text, sparklines, domain:infovis",
+        "number": "12",
+        "pages": "2291--2300",
+        "publisher": "IEEE",
+        "series": "TVCG",
+        "title": "Exploring the placement and design of word-scale visualizations",
+        "type": "article",
+        "volume": "20",
+        "year": "2014"
+    },
+    "Goffin2017Exploratory": {
+        "abstract": "We contribute an investigation of the design and function of word-scale graphics and visualizations embedded in text documents. Word-scale graphics include both data-driven representations such as word-scale visualizations and sparklines, and non-data-driven visual marks. Their design, function, and use has so far received little research attention. We present the results of an open ended exploratory study with 9 graphic designers. The study resulted in a rich collection of different types of graphics, data provenance, and relationships between text, graphics, and data. Based on this corpus, we present a systematic overview of word-scale graphic designs, and examine how designers used them. We also discuss the designers\u2019 goals in creating their graphics, and characterize how they used word-scale graphics to visualize data, add emphasis, and create alternative narratives. Building on these examples, we discuss implications for the design of authoring tools for word-scale graphics and visualizations, and explore how new authoring environments could make it easier for designers to integrate them into documents.",
+        "author": "Goffin, Pascal and Boy, Jeremy and Willett, Wesley and Isenberg, Petra",
+        "doi": "10.1109/TVCG.2016.2618797",
+        "journal": "IEEE Transactions on Visualization and Computer Graphics",
+        "keywords": "domain:infovis, evaluation:user_study, type:evaluation, sparklines, augmented_text",
+        "number": "10",
+        "pages": "2275--2287",
+        "series": "TVCG",
+        "title": "An Exploratory Study of Word-Scale Graphics in Data-Rich Text Documents",
+        "type": "article",
+        "volume": "23",
+        "year": "2017"
+    },
+};

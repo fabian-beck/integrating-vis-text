@@ -73,6 +73,8 @@ document.body.prepend(titleObject.create());
 
 generatedWordStatisticsExample.generate();
 
+bibManager.createListOfReferences();
+
 tableReferenceManager.updateTableReferences();
 
 headerObject.initStickyHeader();

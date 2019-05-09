@@ -54,7 +54,7 @@ h2 {
     margin-top: 1.5em;
 }
 
-p {
+p, li {
     text-align: justify;
 }
 
@@ -101,6 +101,26 @@ table th, table td {
     float: right;
 }
 
+ol.references {
+    counter-reset: references;
+    padding-left: 0;
+    font-size: 0.9em;
+}
+
+ol.references li {
+    margin: 0.5em 0;
+    display: block;
+    margin-left: 2em;
+}
+
+ol.references li::before {
+    display: inline-block;
+    counter-increment: references;
+    content: '['counter(references)'] ';
+    width: 2em;
+    margin-left: -2em;
+}
+    
 @media print {
     
     #titleContainer {

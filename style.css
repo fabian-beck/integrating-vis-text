@@ -25,7 +25,7 @@ body {
     width: 100%;
 }
 
-#header.sticky + #content {
+#header.sticky+#content {
     padding-top: 3em;
 }
 
@@ -41,9 +41,11 @@ body {
 }
 
 h1 {
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: normal;
-    margin-top: 2.5em;
+    padding-top: 3.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
 }
 
 h2 {
@@ -97,4 +99,22 @@ table th, table td {
     content: "Automatically generated content";
     font-size: 0.7em;
     float: right;
+}
+
+@media print {
+    
+    #titleContainer {
+        margin-top: 10.0em;
+    }
+
+    #header {
+        display: none;
+    }
+
+    h1 {
+        page-break-before: always;
+        padding-top: 15.0em;
+        margin-bottom: 2.0em;
+    }
+
 }

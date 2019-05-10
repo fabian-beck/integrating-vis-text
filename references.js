@@ -1,5 +1,5 @@
 references = {
-    "Beck2017WordSized2": {
+    "Beck2017WordSized": {
         "abstract": "Generating visualizations at the size of a word creates dense information representations often called sparklines. The integration of word-sized graphics into text could avoid additional cognitive load caused by splitting the readers\u2019 attention between figures and text. In scientific publications, these graphics make statements easier to understand and verify because additional quantitative information is available where needed. In this work, we perform a literature review to find out how researchers have already applied such word-sized representations. Illustrating the versatility of the approach, we leverage these representations for reporting empirical and bibliographic data in three application examples. For interactive Web-based publications, we explore levels of interactivity and discuss interaction patterns to link visualization and text. We finally call the visualization community to be a pioneer in exploring new visualization-enriched and interactive publication formats.",
         "author": "Beck, Fabian and Weiskopf, Daniel",
         "doi": "10.1109/TVCG.2017.2674958",
@@ -13,6 +13,20 @@ references = {
         "type": "article",
         "volume": "23",
         "year": "2017"
+    },
+    "Brandes2011Asymmetric": {
+        "abstract": "In modeling and analysis of longitudinal social networks, visual exploration is used in particular to complement and inform other methods. The most common graphical representations for this purpose appear to be animations and small multiples of intermediate states, depending on the type of media available. We present an alternative approach based on matrix representation of gestaltlines (a combination of Tufte's sparklines with glyphs based on gestalt theory). As a result, we obtain static, compact, yet data-rich diagrams that support specifically the exploration of evolving dyadic relations and persistent group structure, although at the expense of cross-sectional network views and indirect linkages.",
+        "author": "Brandes, Ulrik and Nick, Bobo",
+        "citeulike-article-id": "9861061",
+        "doi": "10.1109/TVCG.2011.169",
+        "journal": "IEEE Transactions on Visualization and Computer Graphics",
+        "keywords": "domain:social_network, domain:infovis, augmented_text, dynamic_graph, gestalt_theory, graph_vis, matrix, sparklines",
+        "number": "12",
+        "pages": "2283--2290",
+        "title": "Asymmetric Relations in Longitudinal Social Networks",
+        "type": "article",
+        "volume": "17",
+        "year": "2011"
     },
     "Goffin2014Exploring": {
         "abstract": "We present an exploration and a design space that characterize the usage and placement of word-scale visualizations within text documents. Word-scale visualizations are a more general version of sparklines-small, word-sized data graphics that allow meta-information to be visually presented in-line with document text. In accordance with Edward Tufte's definition, sparklines are traditionally placed directly before or after words in the text. We describe alternative placements that permit a wider range of word-scale graphics and more flexible integration with text layouts. These alternative placements include positioning visualizations between lines, within additional vertical and horizontal space in the document, and as interactive overlays on top of the text. Each strategy changes the dimensions of the space available to display the visualizations, as well as the degree to which the text must be adjusted or reflowed to accommodate them. We provide an illustrated design space of placement options for word-scale visualizations and identify six important variables that control the placement of the graphics and the level of disruption of the source text. We also contribute a quantitative analysis that highlights the effect of different placements on readability and text disruption. Finally, we use this analysis to propose guidelines to support the design and placement of word-scale visualizations.",
@@ -55,6 +69,20 @@ references = {
         "type": "article",
         "volume": "23",
         "year": "2017"
+    },
+    "Latif2019VIS": {
+        "abstract": "Publication records and collaboration networks are important for assessing the expertise and experience of researchers. Existing digital libraries show the raw publication lists in author profiles, whereas visualization techniques focus on specific subproblems. Instead, we look at publication records from various perspectives mixing low-level publication data with high-level abstractions and background information. This work presents VIS Author Profiles, a novel approach to generate integrated textual and visual descriptions to highlight patterns in publication records. We leverage template-based natural language generation to summarize notable publication statistics, evolution of research topics, and collaboration relationships. Seamlessly integrated visualizations augment the textual description and are interactively connected with each other and the text. The underlying publication data and detailed explanations of the analysis are available on demand. We compare our approach to existing systems by taking into account information needs of users and demonstrate its usefulness in two realistic application examples.",
+        "author": "Latif, Shahid and Beck, Fabian",
+        "doi": "10.1109/TVCG.2018.2865022",
+        "journal": "IEEE Transactions on Visualization and Computer Graphics",
+        "keywords": "nlg, bibliometrics, domain:infovis, interactive_documents, domain:nlg, sparklines, augmented_text",
+        "number": "1",
+        "pages": "152--161",
+        "publisher": "IEEE",
+        "title": "{VIS Author Profiles}: Interactive Descriptions of Publication Records Combining Text and Visualization",
+        "type": "article",
+        "volume": "25",
+        "year": "2019"
     },
     "Tufte2006Beautiful": {
         "abstract": "Science and art have in common intense seeing, the wide-eyed observing that generates empirical information. Beautiful Evidence is about how seeing turns into showing, how empirical observations turn into explanations and evidence presentations. The book identifies excellent and effective methods for presenting information, suggests new designs, and provides tools for assessing the credibility of evidence presentations.Here we will see many close readings of serious evidence presentations-ranging through evolutionary trees and rocket science to economics, art history, and sculpture. Insistent application of the principles of analytical thinking helps both insiders and outsiders assess the credibility of evidence.",

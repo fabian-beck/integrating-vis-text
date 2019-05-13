@@ -1,12 +1,23 @@
+const documentObject = {
+    createAndApply() {
+        const sideLayoutContainer = document.createElement('div');
+        sideLayoutContainer.id = 'sideLayoutContainer';
+        sideLayoutContainer.append(headerObject.create());
+        sideLayoutContainer.append(tableOfContentsObject.create());
+        document.body.prepend(sideLayoutContainer);
+        document.body.prepend(titleObject.create());
+    }
+}
+
 const titleObject = {
     create() {
-        let titleContainer = document.createElement('div');
+        const titleContainer = document.createElement('div');
         titleContainer.id = 'titleContainer';
-        let titleDiv = document.createElement('div');
+        const titleDiv = document.createElement('div');
         titleDiv.id = 'title';
         titleDiv.innerHTML = document.title;
         titleContainer.append(titleDiv);
-        let authorDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
         authorDiv.id = 'author';
         authorDiv.innerHTML = document.head.querySelector('[name~=author][content]').content;
         titleContainer.append(authorDiv);
@@ -30,9 +41,11 @@ const headerObject = {
         if (window.pageYOffset > this.stickyOffset) {
             header.classList.add('sticky');
             header.innerHTML = document.title;
+            toc.style.visibility = 'visible';
         } else {
             header.classList.remove('sticky');
             header.innerHTML = '';
+            toc.style.visibility = 'hidden';
         }
     }
 }
@@ -64,7 +77,7 @@ const tableOfContentsObject = {
             counter++;
         });
         tocDiv.appendChild(rootHList);
-        return tocDiv; 
+        return tocDiv;
     }
 }
 

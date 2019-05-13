@@ -8,9 +8,7 @@ const generatedWordStatisticsExample = {
     }
 }
 
-document.body.prepend(tableOfContentsObject.create());
-document.body.prepend(headerObject.create());
-document.body.prepend(titleObject.create());
+documentObject.createAndApply();
 
 generatedWordStatisticsExample.generate();
 

@@ -1,3 +1,7 @@
+:root {
+    --light-bg-color: rgb(255, 248, 239);
+  }
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,12 +11,13 @@ body {
 #titleContainer {
     font-size: 1.5em;
     text-align: center;
-    background-color: rgb(252, 242, 227);
+    background-color: var(--light-bg-color);
     padding: 1em 0;
 }
 
 #header {
-    height: 1.5em;
+    box-sizing: border-box;
+    height: 2em;
     background-color: rgb(255, 236, 206);
     text-align: center;
     padding: 0.2em;
@@ -27,6 +32,36 @@ body {
 
 #header.sticky+#content {
     padding-top: 3em;
+}
+
+#toc {
+    box-sizing: border-box;
+    position: fixed;
+    top: 2.2em;
+    height: 100%;
+    overflow: auto;
+    padding: 1em;
+    font-size: 0.9em;
+    visibility: hidden;
+    background-color: var(--light-bg-color);
+}
+
+#toc h1 {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1em;
+    border: none;
+}
+
+#toc ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#toc ul ul {
+    padding-left: 1em;
 }
 
 #title {
@@ -120,6 +155,12 @@ ol.references li::before {
     width: 2em;
     margin-left: -2em;
 }
+
+@media screen and (max-device-width: 1400px){
+    #toc {
+        display: none;
+    }
+}
     
 @media print {
     
@@ -135,6 +176,10 @@ ol.references li::before {
         page-break-before: always;
         padding-top: 15.0em;
         margin-bottom: 2.0em;
+    }
+
+    #toc {
+        position: initial;
     }
 
 }

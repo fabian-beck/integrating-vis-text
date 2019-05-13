@@ -30,8 +30,10 @@ body {
     width: 100%;
 }
 
+/* Extra space for content when header gets sticky (so that text does not jump)
+/* TODO: doesn't work anymore since table of contents added */
 #header.sticky+#content {
-    padding-top: 3em;
+    padding-top: 2em;
 }
 
 #toc {

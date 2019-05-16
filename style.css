@@ -2,6 +2,9 @@
     --light-bg-color: rgb(255, 248, 239);
     --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
     --panel-border: 2px solid white;
+    --header-height: 2.0em;
+    --toc-width: 18em;
+    --info-width: 23em;
   }
 
 body {
@@ -17,9 +20,14 @@ body {
     padding: 1em 0;
 }
 
+#title {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
 #header {
     box-sizing: border-box;
-    height: 2em;
+    height: var(--header-height);
     background-color: rgb(255, 236, 206);
     text-align: center;
     padding: 0.2em;
@@ -43,15 +51,17 @@ body {
 #toc {
     box-sizing: border-box;
     position: fixed;
-    top: 2.2em;
-    height: 100%;
+    /* unclear why the additional offset is required */
+    top: calc(var(--header-height) + 0.2em);
+    bottom: 0;
+    width: var(--toc-width);
     overflow: auto;
     padding: 1em;
     font-size: 0.9em;
-    visibility: hidden;
     background-color: var(--light-bg-color);
     box-shadow: var(--panel-shadow);
     border-right: var(--panel-border);
+    visibility: hidden;
 }
 
 #toc h1 {
@@ -72,9 +82,19 @@ body {
     padding-left: 1em;
 }
 
-#title {
-    font-size: 1.5em;
-    margin-bottom: 1em;
+#info {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    top: var(--header-height);
+    left: calc(100% - var(--info-width));
+    width: var(--info-width);
+    overflow: auto;
+    padding: 1em;
+    background-color: var(--light-bg-color);
+    border-left: var(--panel-border);
+    box-shadow: var(--panel-shadow);
+    visibility: hidden;
 }
 
 #content {
@@ -168,6 +188,10 @@ ol.references li::before {
     #toc {
         display: none;
     }
+
+    #info {
+        display: none;
+    }
 }
     
 @media print {
@@ -188,6 +212,11 @@ ol.references li::before {
 
     #toc {
         position: initial;
+        box-shadow: none;
+    }
+
+    #info {
+        display: none;
     }
 
 }

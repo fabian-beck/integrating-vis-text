@@ -4,6 +4,7 @@ const documentObject = {
         sideLayoutContainer.id = 'sideLayoutContainer';
         sideLayoutContainer.append(headerObject.create());
         sideLayoutContainer.append(tableOfContentsObject.create());
+        sideLayoutContainer.append(infoPanel.create());
         document.body.prepend(sideLayoutContainer);
         document.body.prepend(titleObject.create());
     }
@@ -42,10 +43,12 @@ const headerObject = {
             header.classList.add('sticky');
             header.innerHTML = document.title;
             toc.style.visibility = 'visible';
+            info.style.visibility = 'visible';
         } else {
             header.classList.remove('sticky');
             header.innerHTML = '';
             toc.style.visibility = 'hidden';
+            info.style.visibility = 'hidden';
         }
     }
 }
@@ -78,6 +81,14 @@ const tableOfContentsObject = {
         });
         tocDiv.appendChild(rootHList);
         return tocDiv;
+    }
+}
+
+const infoPanel = {
+    create() {
+        const infoPanelDiv = document.createElement('div');
+        infoPanelDiv.id = 'info';
+        return infoPanelDiv;
     }
 }
 

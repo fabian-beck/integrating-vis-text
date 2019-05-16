@@ -1,5 +1,7 @@
 :root {
     --light-bg-color: rgb(255, 248, 239);
+    --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
+    --panel-border: 2px solid white;
   }
 
 body {
@@ -22,6 +24,8 @@ body {
     text-align: center;
     padding: 0.2em;
     overflow: hidden;
+    box-shadow: var(--panel-shadow);
+    border-bottom: var(--panel-border);
 }
 
 #header.sticky {
@@ -46,6 +50,8 @@ body {
     font-size: 0.9em;
     visibility: hidden;
     background-color: var(--light-bg-color);
+    box-shadow: var(--panel-shadow);
+    border-right: var(--panel-border);
 }
 
 #toc h1 {

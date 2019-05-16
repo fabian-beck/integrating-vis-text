@@ -5,6 +5,7 @@
     --header-height: 2.0em;
     --toc-width: 18em;
     --info-width: 23em;
+    --main-padding: 1em;
   }
 
 body {
@@ -40,12 +41,6 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-}
-
-/* Extra space for content when header gets sticky (so that text does not jump)
-/* TODO: doesn't work anymore since table of contents added */
-#header.sticky+#content {
-    padding-top: 2em;
 }
 
 #toc {
@@ -97,11 +92,17 @@ body {
     visibility: hidden;
 }
 
-#content {
+#main {
     margin: 1em auto;
     max-width: 40em;
-    padding: 1em;
+    padding: var(--main-padding);
 }
+
+/* Extra space for content when header gets sticky (so that text does not jump)*/
+#main.sticky {
+    padding-top: calc(var(--header-height) + var(--main-padding));
+}
+
 
 h1 {
     font-size: 1.6em;

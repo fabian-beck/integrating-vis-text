@@ -41,11 +41,13 @@ const headerObject = {
     updateStickyHeader() {
         if (window.pageYOffset > this.stickyOffset) {
             header.classList.add('sticky');
+            main.classList.add('sticky');
             header.innerHTML = document.title;
             toc.style.visibility = 'visible';
             info.style.visibility = 'visible';
         } else {
             header.classList.remove('sticky');
+            main.classList.remove('sticky');
             header.innerHTML = '';
             toc.style.visibility = 'hidden';
             info.style.visibility = 'hidden';

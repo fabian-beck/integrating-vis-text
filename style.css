@@ -6,6 +6,8 @@
     --toc-width: 18em;
     --info-width: 23em;
     --main-padding: 1em;
+    --font-small: 0.9em;
+    --font-tiny: 0.83em;
   }
 
 body {
@@ -46,13 +48,11 @@ body {
 #toc {
     box-sizing: border-box;
     position: fixed;
-    /* unclear why the additional offset is required */
-    top: calc(var(--header-height) + 0.2em);
+    top: calc(var(--header-height));
     bottom: 0;
     width: var(--toc-width);
     overflow: auto;
     padding: 1em;
-    font-size: 0.9em;
     background-color: var(--light-bg-color);
     box-shadow: var(--panel-shadow);
     border-right: var(--panel-border);
@@ -60,14 +60,15 @@ body {
 }
 
 #toc h1 {
-    font-size: 1.2em;
     padding: 0;
     margin: 0;
     margin-bottom: 1em;
     border: none;
+    font-size: 1em;
 }
 
 #toc ul {
+    font-size: var(--font-small);
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -90,6 +91,41 @@ body {
     border-left: var(--panel-border);
     box-shadow: var(--panel-shadow);
     visibility: hidden;
+}
+
+#info .ref div {
+    margin-bottom: 0.5em;
+}
+
+#info .refIndex {
+    font-size: var(--font-tiny);
+    float: left;
+    margin-top: 0.1em;
+    margin-right: 0.5em;
+}
+
+#info .refTitle {
+    font-weight: bold;
+}
+
+#info .refAuthor {
+    font-size: var(--font-small);
+}
+
+#info .refDetails {
+    font-size: var(--font-tiny);
+}
+
+#info .refAbstract {
+    font-size: var(--font-small);
+    font-style: italic;
+}
+
+#info .refAbstract::before {
+    content: 'Abstract: ';
+    font-weight: bold;
+    font-size: var(--font-tiny);
+    font-style: normal;
 }
 
 #main {
@@ -151,7 +187,7 @@ table caption {
 
 table th, table td {
     padding: 0.1em 0.2em;
-    font-size: 0.9em;
+    font-size: var(--font-small);
 }
 
 .generated {
@@ -168,7 +204,7 @@ table th, table td {
 ol.references {
     counter-reset: references;
     padding-left: 0;
-    font-size: 0.9em;
+    font-size: var(--font-small);
 }
 
 ol.references li {

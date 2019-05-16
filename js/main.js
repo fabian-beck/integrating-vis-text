@@ -12,6 +12,7 @@ documentObject.createAndApply();
 
 generatedWordStatisticsExample.generate();
 
+console.log(bibManager);
 bibManager.createListOfReferences();
 
 tableReferenceManager.updateTableReferences();

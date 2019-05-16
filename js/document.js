@@ -29,8 +29,18 @@ const titleObject = {
 const headerObject = {
     stickyOffset: 0,
     create() {
-        let headerDiv = document.createElement('div');
+        const headerDiv = document.createElement('div');
         headerDiv.id = 'header';
+        headerDiv.innerHTML = '<div id="headerTitle"></div>';
+        const infoCloseButtonDiv = document.createElement('div');
+        infoCloseButtonDiv.id = 'infoCloseButton';
+        infoCloseButtonDiv.classList.add('button');
+        infoCloseButtonDiv.innerHTML = '[close]';
+        infoCloseButtonDiv.addEventListener('click', function () {
+            info.style.display = 'none';
+            infoCloseButton.style.display = 'none';
+        });
+        headerDiv.appendChild(infoCloseButtonDiv);
         return headerDiv;
     },
     /* needs to be called only after the whole layout has been established */
@@ -42,13 +52,13 @@ const headerObject = {
         if (window.pageYOffset > this.stickyOffset) {
             header.classList.add('sticky');
             main.classList.add('sticky');
-            header.innerHTML = document.title;
+            headerTitle.innerHTML = document.title;
             toc.style.visibility = 'visible';
             info.style.visibility = 'visible';
         } else {
             header.classList.remove('sticky');
             main.classList.remove('sticky');
-            header.innerHTML = '';
+            headerTitle.innerHTML = '';
             toc.style.visibility = 'hidden';
             info.style.visibility = 'hidden';
         }

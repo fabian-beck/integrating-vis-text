@@ -109,6 +109,8 @@ let bibManager = function () {
                     cit.addEventListener('click', function () {
                         info.innerHTML = '';
                         info.appendChild(createLongReference(referenceKey, index));
+                        info.style.display = 'block';
+                        infoCloseButton.style.display = 'block';
                     });
                     cit.innerHTML = `<a>[${index}]</a>`;
                 }

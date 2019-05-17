@@ -8,6 +8,7 @@
     --main-padding: 1em;
     --font-small: 0.9em;
     --font-tiny: 0.83em;
+    --font-color-light: #777;
 }
 
 body {
@@ -45,14 +46,15 @@ body {
 }
 
 #headerTitle {
-    float: left;
-    width: 90%;
+    width: 100%;
     text-align: center;
 }
 
 #header .button {
     visibility: hidden;
     display: none;
+    position: relative;
+    top: -1.5em;
 }
 
 #header.sticky .button {
@@ -132,6 +134,17 @@ body {
     font-size: var(--font-tiny);
 }
 
+#info .refKeywords {
+    font-size: var(--font-small);
+}
+
+#info .refKeywords::before {
+    content: 'Keywords: ';
+    font-weight: bold;
+    font-size: var(--font-tiny);
+    font-style: normal;
+}
+
 #info .refAbstract {
     font-size: var(--font-small);
     font-style: italic;
@@ -151,7 +164,6 @@ body {
 }
 
 /* Extra space for content when header gets sticky (so that text does not jump)*/
-
 #main.sticky {
     padding-top: calc(var(--header-height) + var(--main-padding));
 }
@@ -174,13 +186,24 @@ p, li {
     text-align: justify;
 }
 
-a {
-    color: #777;
-    text-decoration: none;
+.button {
+    color: var(--font-color-light);
+    background-color: white;
+    border-radius: 0.2em;
+    font-size: var(--font-tiny);
+    padding: 0.1em;
+    border: 1px solid white;
 }
 
-.button {
+.button:hover {
+    color: black;
     cursor: pointer;
+    border: 1px solid black;
+}
+
+a {
+    color: var(--font-color-light);
+    text-decoration: none;
 }
 
 a:hover {
@@ -245,8 +268,15 @@ ol.references li::before {
     #toc {
         display: none;
     }
-    #info {
+}
+
+@media screen and (max-device-width: 700px) {
+    #toc {
         display: none;
+    }
+    #info {
+        left: 0;
+        width: 100%;
     }
 }
 

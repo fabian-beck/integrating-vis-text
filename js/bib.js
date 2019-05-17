@@ -1,7 +1,7 @@
-let bibManager = function () {
+const bibManager = function () {
 
     /* adapted from SurVis https://github.com/fabian-beck/survis/blob/master/src/js/app/util.js */
-    latexToHtml = function (latex) {
+    const latexToHtml = function (latex) {
         if (!latex) {
             return '';
         }
@@ -58,28 +58,25 @@ let bibManager = function () {
         return html;
     }
 
-    createDoiLink = function (reference) {
-        return ``;
-    }
-
-    createRefDetails = function (reference) {
-        var s = `${reference.year}.`;
+    const createRefDetails = function (reference) {
+        var s = '';
+        if (reference.booktitle) {
+            s += `In <em>${reference.booktitle}</em>, `
+        } else if (reference.journal) {
+            s += `<em>${reference.journal}</em>, `;
+        }
+        s += `${reference.year}.`;
         if (reference.doi) {
             s += ` doi: <a href="https://dx.doi.org/${reference.doi}">${reference.doi}</a>`;
         }
         return s;
     }
 
-    createShortReference = function (referenceKey, reference) {
-        var s = '';
-        reference.author = reference.author.replace(/\.$/g, '') // removes a '.' if there is one at the end of the author list (can happen for abbreviated middle names)
-        reference.author = reference.author.replace(/ and /g, '; ')
-        s += `<a id="cit:${referenceKey}"></a>${reference.author}. <b>${latexToHtml(reference.title)}</b>, `
-        s += createRefDetails(reference);
-        return `<li>${s}</li>`;
+    const createShortReference = function (referenceKey, reference) {
+        return `<li><a id="cit:${referenceKey}"></a>${reference.author}. <b>${reference.title}</b>. ${createRefDetails(reference)}</li>`;
     };
 
-    createLongReference = function (referenceKey, referenceIndex) {
+    const createLongReference = function (referenceKey, referenceIndex) {
         const referenceDiv = document.createElement('div');
         referenceDiv.classList.add('ref');
         const reference = references[referenceKey];
@@ -87,9 +84,17 @@ let bibManager = function () {
         referenceDiv.innerHTML += `<div class="refTitle">${reference.title}</div>`;
         referenceDiv.innerHTML += `<div class="refAuthor">${reference.author}</div>`;
         referenceDiv.innerHTML += `<div class="refDetails">${createRefDetails(reference)}</div>`;
+        referenceDiv.innerHTML += `<div class="refKeywords">${reference.keywords}</div>`;
         referenceDiv.innerHTML += `<div class="refAbstract">${reference.abstract}</div>`;
         return referenceDiv;
     };
+
+    for (referenceKey in references) {
+        const reference = references[referenceKey];
+        reference.author = reference.author.replace(/\.$/g, ''); // removes a '.' if there is one at the end of the author list (can happen for abbreviated middle names)
+        reference.author = latexToHtml(reference.author.replace(/ and /g, '; '));
+        reference.title = latexToHtml(reference.title);
+    }
 
     return {
         createListOfReferences() {

@@ -35,7 +35,7 @@ const headerObject = {
         const infoCloseButtonDiv = document.createElement('div');
         infoCloseButtonDiv.id = 'infoCloseButton';
         infoCloseButtonDiv.classList.add('button');
-        infoCloseButtonDiv.innerHTML = '[close]';
+        infoCloseButtonDiv.innerHTML = 'close';
         infoCloseButtonDiv.addEventListener('click', function () {
             info.style.display = 'none';
             infoCloseButton.style.display = 'none';

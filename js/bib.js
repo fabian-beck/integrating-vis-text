@@ -94,6 +94,8 @@ const bibManager = function () {
         reference.author = reference.author.replace(/\.$/g, ''); // removes a '.' if there is one at the end of the author list (can happen for abbreviated middle names)
         reference.author = latexToHtml(reference.author.replace(/ and /g, '; '));
         reference.title = latexToHtml(reference.title);
+        reference.journal = latexToHtml(reference.journal);
+        reference.booktitle = latexToHtml(reference.booktitle);
     }
 
     return {

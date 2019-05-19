@@ -28,6 +28,18 @@ references = {
         "volume": "17",
         "year": "2011"
     },
+    "Gatt2018Survey": {
+        "abstract": "This paper surveys the current state of the art in Natural Language Generation (NLG), defined as the task of generating text or speech from non-linguistic input. A survey of NLG is timely in view of the changes that the field has undergone over the past two decades, especially in relation to new (usually data-driven) methods, as well as new applications of NLG technology. This survey therefore aims to (a) give an up-to-date synthesis of research on the core tasks in NLG and the architectures adopted in which such tasks are organised; (b) highlight a number of recent research topics that have arisen partly as a result of growing synergies between NLG and other areas of artificial intelligence; (c) draw attention to the challenges in NLG evaluation, relating them to similar challenges faced in other areas of NLP, with an emphasis on different evaluation methods and the relationships between them.",
+        "author": "Gatt, Albert and Krahmer, Emiel",
+        "doi": "10.1613/jair.5477",
+        "journal": "Journal of Artificial Intelligence Research",
+        "keywords": "domain:nlg, type:survey, tasks",
+        "pages": "65--170",
+        "title": "Survey of the State of the Art in Natural Language Generation: Core tasks, applications and evaluation",
+        "type": "article",
+        "volume": "61",
+        "year": "2018"
+    },
     "Goffin2014Exploring": {
         "abstract": "We present an exploration and a design space that characterize the usage and placement of word-scale visualizations within text documents. Word-scale visualizations are a more general version of sparklines-small, word-sized data graphics that allow meta-information to be visually presented in-line with document text. In accordance with Edward Tufte's definition, sparklines are traditionally placed directly before or after words in the text. We describe alternative placements that permit a wider range of word-scale graphics and more flexible integration with text layouts. These alternative placements include positioning visualizations between lines, within additional vertical and horizontal space in the document, and as interactive overlays on top of the text. Each strategy changes the dimensions of the space available to display the visualizations, as well as the degree to which the text must be adjusted or reflowed to accommodate them. We provide an illustrated design space of placement options for word-scale visualizations and identify six important variables that control the placement of the graphics and the level of disruption of the source text. We also contribute a quantitative analysis that highlights the effect of different placements on readability and text disruption. Finally, we use this analysis to propose guidelines to support the design and placement of word-scale visualizations.",
         "author": "Goffin, Pascal and Willett, Wesley and Fekete, Jean-Daniel and Isenberg, Petra",
@@ -70,6 +82,21 @@ references = {
         "volume": "23",
         "year": "2017"
     },
+    "Latif2018Visually": {
+        "abstract": "A picture is worth a thousand words\u201d is a famous English saying. It is true in many cases, because a complex idea or data can be simply conveyed through the use of a single static image or diagram. Therefore, inclusion of graphics and visualizations in scientific texts has been an important aspect ever since researchers started publishing articles. Conventional writing styles allow researchers to provide images, graphs, and tables to enhance the readability and understandability of the text, but usually, these large-scale images need to be placed at a slightly different location from the relevant text, either on the same page or on the next pages. This far-off placement of graphics forces readers to switch their attention between text and graphics, which can cause a split-attention effect, thereby increasing the cognitive effort to comprehend the information.",
+        "author": "Latif, Shahid and Beck, Fabian",
+        "doi": "10.1109/MCSE.2018.2875316",
+        "journal": "Computing in Science \\& Engineering",
+        "keywords": "sparklines, domain:infovis, augmented_text, interactive_documents",
+        "number": "6",
+        "pages": "96--103",
+        "publisher": "IEEE",
+        "series": "CiSE",
+        "title": "Visually Augmenting Documents With Data",
+        "type": "article",
+        "volume": "20",
+        "year": "2018"
+    },
     "Latif2019VIS": {
         "abstract": "Publication records and collaboration networks are important for assessing the expertise and experience of researchers. Existing digital libraries show the raw publication lists in author profiles, whereas visualization techniques focus on specific subproblems. Instead, we look at publication records from various perspectives mixing low-level publication data with high-level abstractions and background information. This work presents VIS Author Profiles, a novel approach to generate integrated textual and visual descriptions to highlight patterns in publication records. We leverage template-based natural language generation to summarize notable publication statistics, evolution of research topics, and collaboration relationships. Seamlessly integrated visualizations augment the textual description and are interactively connected with each other and the text. The underlying publication data and detailed explanations of the analysis are available on demand. We compare our approach to existing systems by taking into account information needs of users and demonstrate its usefulness in two realistic application examples.",
         "author": "Latif, Shahid and Beck, Fabian",
@@ -83,6 +110,15 @@ references = {
         "type": "article",
         "volume": "25",
         "year": "2019"
+    },
+    "Reiter2000Building": {
+        "abstract": "This book explains how to build Natural Language Generation (NLG) systems - computer software systems which use techniques from artificial intelligence and computational linguistics to automatically generate understandable texts in English or other human languages, either in isolation or as part of multimedia documents, Web pages, and speech output systems. Typically starting from some non-linguistic representation of information as input, NLG systems use knowledge about language and the application domain to automatically produce documents, reports, explanations, help messages, and other kinds of texts. The book covers the algorithms and representations needed to perform the core tasks of document planning, microplanning, and surface realization, using a case study to show how these components fit together. It also discusses engineering issues such as system architecture, requirements analysis, and the integration of text generation into multimedia and speech output systems.",
+        "author": "Reiter, Ehud and Dale, Robert and Feng, Zhiwei",
+        "keywords": "domain:nlg, type:textbook",
+        "publisher": "MIT Press",
+        "title": "Building natural language generation systems",
+        "type": "book",
+        "year": "2000"
     },
     "Tufte2006Beautiful": {
         "abstract": "Science and art have in common intense seeing, the wide-eyed observing that generates empirical information. Beautiful Evidence is about how seeing turns into showing, how empirical observations turn into explanations and evidence presentations. The book identifies excellent and effective methods for presenting information, suggests new designs, and provides tools for assessing the credibility of evidence presentations.Here we will see many close readings of serious evidence presentations-ranging through evolutionary trees and rocket science to economics, art history, and sculpture. Insistent application of the principles of analytical thinking helps both insiders and outsiders assess the credibility of evidence.",

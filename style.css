@@ -3,7 +3,7 @@
     --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
     --panel-border: 2px solid white;
     --header-height: 2.0em;
-    --toc-width: 18em;
+    --toc-width: 15em;
     --info-width: 23em;
     --main-padding: 1em;
     --font-small: 0.9em;
@@ -93,6 +93,16 @@ body {
 
 #toc ul ul {
     padding-left: 1em;
+}
+
+#toc li {
+    text-align: left;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+
+#toc > ul > li {
+    padding-top: 0.5em;
 }
 
 #info {
@@ -295,6 +305,11 @@ ol.references li::before {
     #toc {
         position: initial;
         box-shadow: none;
+        page-break-before: always;
+        width: 100%;
+    }
+    #toc::before {
+        content: 'Table of Contents';
     }
     #info {
         display: none;

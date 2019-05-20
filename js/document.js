@@ -1,9 +1,10 @@
 const documentObject = {
     createAndApply() {
+        this.sectionHierarchy = new SectionHierarchy();
         const sideLayoutContainer = document.createElement('div');
         sideLayoutContainer.id = 'sideLayoutContainer';
         sideLayoutContainer.append(headerObject.create());
-        sideLayoutContainer.append(tableOfContentsObject.create());
+        sideLayoutContainer.append(this.sectionHierarchy.toTableOfContents());
         sideLayoutContainer.append(infoPanel.create());
         document.body.prepend(sideLayoutContainer);
         document.body.prepend(titleObject.create());
@@ -65,34 +66,78 @@ const headerObject = {
     }
 }
 
-const tableOfContentsObject = {
-    create() {
-        const tocDiv = document.createElement('div');
-        tocDiv.id = 'toc';
-        tocDiv.innerHTML = '<h1>Table of Contents</h1>';
-        let hList = document.createElement('ul');
-        const rootHList = hList;
-        let previousLevel = 1;
-        var counter = 0;
+class SectionHierarchy {
+
+    constructor() {
+        let currentSection = new Section('', 'root');
+        this.rootSection = currentSection;
+        let previousLevel = 0;
+        let indexCounter = 1;
         document.querySelectorAll('h1, h2, h3').forEach(sectionHeader => {
             const level = Number(sectionHeader.tagName.substr(1));
+            let parentSection = currentSection.parentSection;
             if (level > previousLevel) {
-                subHList = document.createElement('ul');
-                hList.appendChild(subHList);
-                hList = subHList;
+                indexCounter = 1;
+                parentSection = currentSection;
                 previousLevel = level;
             } else if (level < previousLevel) {
-                hList = hList.parentElement;
+                indexCounter = currentSection.parentSection.index + 1;
+                parentSection = currentSection.parentSection.parentSection;
                 previousLevel = level;
             }
-            sectionHeader.id = `toc${counter}`;
-            const li = document.createElement('li');
-            li.innerHTML = `<a href="#toc${counter}">${sectionHeader.innerHTML}</a>`;
-            hList.appendChild(li);
-            counter++;
+            currentSection = new Section(indexCounter, sectionHeader.innerHTML, parentSection);
+            sectionHeader.id = `toc${currentSection.indexPath}`;
+            sectionHeader.innerHTML = `${currentSection.toString()}`;
+            indexCounter++;
         });
-        tocDiv.appendChild(rootHList);
+    }
+
+    toTableOfContents() {
+        const tocDiv = document.createElement('div');
+        tocDiv.id = 'toc';
+        tocDiv.appendChild(this.rootSection.toTableOfContents());
         return tocDiv;
+    }
+
+}
+
+class Section {
+
+    constructor(index, title, parentSection) {
+        this.title = title;
+        this.index = index;
+        this.indexPath = (parentSection && parentSection.index ? `${parentSection.index}.` : '') + String(index);
+        this.level = parentSection ? parentSection.level + 1 : 0;
+        this.parentSection = parentSection;
+        this.childSections = [];
+        if (parentSection) {
+            parentSection.childSections.push(this);
+        }
+    }
+
+    toTableOfContents() {
+        if (this.childSections) {
+            const list = document.createElement('ul');
+            this.childSections.forEach((childSection) => {
+                const listElement = document.createElement('li');
+                listElement.innerHTML = childSection.toLink();
+                list.appendChild(listElement);
+                const subList = childSection.toTableOfContents();
+                if (subList) {
+                    list.appendChild(subList);
+                }
+            });
+            return list;
+        }
+        return undefined;
+    }
+
+    toString() {
+        return `${this.indexPath} ${this.title}`;
+    }
+
+    toLink() {
+        return `<a href="#toc${this.indexPath}">${this.toString()}</a>`;
     }
 }
 

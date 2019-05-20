@@ -3,8 +3,8 @@
     --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
     --panel-border: 2px solid white;
     --header-height: 2.0em;
-    --toc-width: 15em;
-    --info-width: 23em;
+    --toc-width: 14vw;
+    --info-width: 25vw;
     --main-padding: 1em;
     --font-small: 0.9em;
     --font-tiny: 0.83em;
@@ -101,7 +101,7 @@ body {
     padding-left: 1em;
 }
 
-#toc > ul > li {
+#toc>ul>li {
     padding-top: 0.5em;
 }
 
@@ -243,6 +243,22 @@ table th, table td {
     font-size: var(--font-small);
 }
 
+marginal {
+    color: rgb(39, 102, 185);
+    position: relative;
+    max-height: 0;
+    left: -10em;
+    width: 9em;
+    text-align: center;
+    display: block;
+    margin-top: 1.2em;
+    margin-bottom: -1.2em;
+    box-sizing: border-box;
+    font-family: 'Shadows Into Light', cursive;
+    z-index: -1;
+    font-size: 1.1em;
+}
+
 .generated {
     background: #eee;
     padding: 0.2em;
@@ -278,6 +294,13 @@ ol.references li::before {
     #toc {
         display: none;
     }
+    marginal {
+        display: none;
+    }
+    #info {
+        width: calc(2 * var(--info-width));
+        left: calc(100% - 2 * var(--info-width));
+    }
 }
 
 @media screen and (max-device-width: 700px) {
@@ -297,11 +320,6 @@ ol.references li::before {
     #header {
         display: none;
     }
-    h1 {
-        page-break-before: always;
-        padding-top: 15.0em;
-        margin-bottom: 2.0em;
-    }
     #toc {
         position: initial;
         box-shadow: none;
@@ -313,5 +331,14 @@ ol.references li::before {
     }
     #info {
         display: none;
+    }
+    #main {
+        padding-left: 15em;
+        font-size: 0.85em;
+    }
+    h1 {
+        page-break-before: always;
+        padding-top: 15.0em;
+        margin-bottom: 2.0em;
     }
 }

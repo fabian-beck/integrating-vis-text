@@ -9,6 +9,7 @@
     --font-small: 0.9em;
     --font-tiny: 0.83em;
     --font-color-light: #777;
+    --font-handwritten: 'Shadows Into Light', cursive;
 }
 
 body {
@@ -26,7 +27,12 @@ body {
 
 #title {
     font-size: 1.5em;
-    margin-bottom: 1em;
+    margin-bottom: 0.6em;
+}
+
+#documentDescription {
+    padding-bottom: 2em;
+    font-family: var(--font-handwritten);
 }
 
 #header {
@@ -254,7 +260,7 @@ marginal {
     margin-top: 1.2em;
     margin-bottom: -1.2em;
     box-sizing: border-box;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: var(--font-handwritten);
     z-index: -1;
     font-size: 1.1em;
 }
@@ -325,6 +331,8 @@ ol.references li::before {
         box-shadow: none;
         page-break-before: always;
         width: 100%;
+        display: block;
+        visibility: visible;
     }
     #toc::before {
         content: 'Table of Contents';
@@ -333,7 +341,7 @@ ol.references li::before {
         display: none;
     }
     #main {
-        padding-left: 15em;
+        padding-left: 11em;
         font-size: 0.85em;
     }
     h1 {

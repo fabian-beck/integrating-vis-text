@@ -7,24 +7,33 @@ const documentObject = {
         sideLayoutContainer.append(this.sectionHierarchy.toTableOfContents());
         sideLayoutContainer.append(infoPanel.create());
         document.body.prepend(sideLayoutContainer);
-        document.body.prepend(titleObject.create());
+        document.body.prepend(new Title().toHtml());
     }
 }
 
-const titleObject = {
-    create() {
-        const titleContainer = document.createElement('div');
-        titleContainer.id = 'titleContainer';
+class Title  {
+
+    constructor() {
+        this.titleContainer = document.createElement('div');
+        this.titleContainer.id = 'titleContainer';
         const titleDiv = document.createElement('div');
         titleDiv.id = 'title';
         titleDiv.innerHTML = document.title;
-        titleContainer.append(titleDiv);
+        this.titleContainer.append(titleDiv);
+        const descriptionDiv = document.createElement('div');
+        descriptionDiv.id = 'documentDescription';
+        descriptionDiv.innerHTML = document.head.querySelector('[name~=description][content]').content;
+        this.titleContainer.appendChild(descriptionDiv);
         const authorDiv = document.createElement('div');
         authorDiv.id = 'author';
         authorDiv.innerHTML = document.head.querySelector('[name~=author][content]').content;
-        titleContainer.append(authorDiv);
-        return titleContainer;
+        this.titleContainer.append(authorDiv);
     }
+
+    toHtml() {
+        return this.titleContainer;
+    }
+
 }
 
 const headerObject = {

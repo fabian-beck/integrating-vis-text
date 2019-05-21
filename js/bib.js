@@ -114,10 +114,7 @@ const bibManager = function () {
                 const index = Object.keys(references).indexOf(referenceKey) + 1;
                 if (index) {
                     cit.addEventListener('click', function () {
-                        info.innerHTML = '';
-                        info.appendChild(createLongReference(referenceKey, index));
-                        info.style.display = 'block';
-                        infoCloseButton.style.display = 'block';
+                        infoPanel.open('Reference',createLongReference(referenceKey, index));
                     });
                     cit.innerHTML = `<a>[${index}]</a>`;
                 }

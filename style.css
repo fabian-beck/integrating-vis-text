@@ -1,5 +1,6 @@
 :root {
-    --light-bg-color: rgb(255, 248, 239);
+    --bg-color: rgb(255, 236, 206);
+    --light-bg-color: rgb(252, 249, 239);
     --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
     --panel-border: 2px solid white;
     --header-height: 2.0em;
@@ -9,20 +10,21 @@
     --font-small: 0.9em;
     --font-tiny: 0.83em;
     --font-color-light: #777;
-    --font-handwritten: 'Shadows Into Light', cursive;
+    --font-handwritten: 'Architects Daughter', cursive;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    max-width: 100vw!;
 }
 
 #titleContainer {
     font-size: 1.5em;
     text-align: center;
     background-color: var(--light-bg-color);
-    padding: 1em 0;
+    padding: 2em;
 }
 
 #title {
@@ -38,7 +40,7 @@ body {
 #header {
     box-sizing: border-box;
     height: var(--header-height);
-    background-color: rgb(255, 236, 206);
+    background-color: var(--bg-color);
     padding: 0.2em;
     overflow: hidden;
     box-shadow: var(--panel-shadow);
@@ -54,18 +56,6 @@ body {
 #headerTitle {
     width: 100%;
     text-align: center;
-}
-
-#header .button {
-    visibility: hidden;
-    display: none;
-    position: relative;
-    top: -1.5em;
-}
-
-#header.sticky .button {
-    visibility: visible;
-    float: right;
 }
 
 #toc {
@@ -109,6 +99,37 @@ body {
 
 #toc>ul>li {
     padding-top: 0.5em;
+}
+
+#infoHeader {
+    visibility: hidden;
+    display: none;
+}
+
+#infoHeader.sticky {
+    position: relative;
+    top: -1.2em;
+    padding-right: 0.2em;
+    background-color: var(--bg-color);
+    visibility: visible;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    height: var(--header-height);
+    left: calc(100% - var(--info-width));
+    width: var(--info-width);
+    padding: 0.2em 1em;
+    border-left: var(--panel-border);
+    border-bottom: var(--panel-border);
+}
+
+#infoTitle {
+    float: left;
+}
+
+#infoCloseButton {
+    float: right;
 }
 
 #info {
@@ -204,17 +225,11 @@ p, li {
 
 .button {
     color: var(--font-color-light);
-    background-color: white;
-    border-radius: 0.2em;
-    font-size: var(--font-tiny);
-    padding: 0.1em;
-    border: 1px solid white;
 }
 
 .button:hover {
     color: black;
     cursor: pointer;
-    border: 1px solid black;
 }
 
 a {
@@ -257,12 +272,12 @@ marginal {
     width: 9em;
     text-align: center;
     display: block;
-    margin-top: 1.2em;
-    margin-bottom: -1.2em;
+    margin-top: 1.8em;
+    margin-bottom: -1.8em;
     box-sizing: border-box;
     font-family: var(--font-handwritten);
     z-index: -1;
-    font-size: 1.1em;
+    font-size: 1.0em;
 }
 
 .generated {
@@ -296,24 +311,24 @@ ol.references li::before {
     margin-left: -2em;
 }
 
-@media screen and (max-device-width: 1400px) {
+@media screen and (max-width: 1400px) {
     #toc {
         display: none;
     }
     marginal {
         display: none;
-    }
-    #info {
+    }   
+    #infoHeader.sticky, #info {
         width: calc(2 * var(--info-width));
         left: calc(100% - 2 * var(--info-width));
     }
 }
 
-@media screen and (max-device-width: 700px) {
+@media screen and (max-width: 700px) {
     #toc {
         display: none;
     }
-    #info {
+    #infoHeader.sticky, #info {
         left: 0;
         width: 100%;
     }

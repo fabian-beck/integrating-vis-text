@@ -3,15 +3,17 @@ const documentObject = {
         this.sectionHierarchy = new SectionHierarchy();
         const sideLayoutContainer = document.createElement('div');
         sideLayoutContainer.id = 'sideLayoutContainer';
-        sideLayoutContainer.append(headerObject.create());
+        const headerDiv = headerObject.create()
+        sideLayoutContainer.append(headerDiv);
         sideLayoutContainer.append(this.sectionHierarchy.toTableOfContents());
         sideLayoutContainer.append(infoPanel.create());
+        headerDiv.appendChild(infoPanel.createHeader());
         document.body.prepend(sideLayoutContainer);
         document.body.prepend(new Title().toHtml());
     }
 }
 
-class Title  {
+class Title {
 
     constructor() {
         this.titleContainer = document.createElement('div');
@@ -42,15 +44,6 @@ const headerObject = {
         const headerDiv = document.createElement('div');
         headerDiv.id = 'header';
         headerDiv.innerHTML = '<div id="headerTitle"></div>';
-        const infoCloseButtonDiv = document.createElement('div');
-        infoCloseButtonDiv.id = 'infoCloseButton';
-        infoCloseButtonDiv.classList.add('button');
-        infoCloseButtonDiv.innerHTML = 'close';
-        infoCloseButtonDiv.addEventListener('click', function () {
-            info.style.display = 'none';
-            infoCloseButton.style.display = 'none';
-        });
-        headerDiv.appendChild(infoCloseButtonDiv);
         return headerDiv;
     },
     /* needs to be called only after the whole layout has been established */
@@ -63,12 +56,14 @@ const headerObject = {
             header.classList.add('sticky');
             main.classList.add('sticky');
             headerTitle.innerHTML = document.title;
+            infoHeader.classList.add('sticky');
             toc.style.visibility = 'visible';
             info.style.visibility = 'visible';
         } else {
             header.classList.remove('sticky');
             main.classList.remove('sticky');
             headerTitle.innerHTML = '';
+            infoHeader.classList.remove('sticky');
             toc.style.visibility = 'hidden';
             info.style.visibility = 'hidden';
         }
@@ -154,7 +149,32 @@ const infoPanel = {
     create() {
         const infoPanelDiv = document.createElement('div');
         infoPanelDiv.id = 'info';
+        
         return infoPanelDiv;
+    },
+    createHeader() {
+        const infoHeaderDiv = document.createElement('div');
+        infoHeaderDiv.id = 'infoHeader';
+        const infoHeaderTitleDiv = document.createElement('div');
+        infoHeaderTitleDiv.id = 'infoTitle';
+        infoHeaderDiv.appendChild(infoHeaderTitleDiv);
+        const infoCloseButtonDiv = document.createElement('div');
+        infoCloseButtonDiv.id = 'infoCloseButton';
+        infoCloseButtonDiv.classList.add('button');
+        infoCloseButtonDiv.innerHTML = '<i class="fas fa-window-close"></i>';
+        infoCloseButtonDiv.addEventListener('click', function () {
+            info.style.display = 'none';
+            infoHeaderDiv.style.display = 'none';
+        });
+        infoHeaderDiv.appendChild(infoCloseButtonDiv);
+        return infoHeaderDiv;
+    },
+    open(title, contentDiv) {
+        infoTitle.innerHTML = title;
+        info.innerHTML = '';
+        info.appendChild(contentDiv);
+        info.style.display = 'block';
+        infoHeader.style.display = 'block';
     }
 }
 

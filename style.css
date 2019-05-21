@@ -185,6 +185,7 @@ body {
 #info .refAbstract {
     font-size: var(--font-small);
     font-style: italic;
+    text-align: justify;
 }
 
 #info .refAbstract::before {
@@ -222,6 +223,12 @@ h2 {
 #main p, #main li {
     text-align: justify;
     margin: 1em 0;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    word-break:break-word;
+    hyphens: auto;   
 }
 
 .button {
@@ -288,6 +295,7 @@ marginal {
 #info info {
     display: block;
     font-size: var(--font-small);
+    text-align: justify;
 }
 
 i {

@@ -14,14 +14,14 @@ class MyDocument {
         document.body.prepend(sideLayoutContainer);
         document.body.prepend(new Title().toHtml());
 
-        this.updateTableReferences();
+        this.updateReferences();
         bibManager.createListOfReferences();
         bibManager.updateCitations();
 
         this.headerPanel.initStickyHeader();
     }
 
-    updateTableReferences() {
+    updateReferences() {
         let tableCount = 0;
         const tableLabelIndexMap = {};
         document.querySelectorAll('table').forEach(table => {
@@ -34,9 +34,18 @@ class MyDocument {
             }
         });
         document.querySelectorAll('ref').forEach(ref => {
-            const index = tableLabelIndexMap[ref.innerHTML];
-            if (index) {
-                ref.innerHTML = `<a href="#${ref.innerHTML}">Table&nbsp;${index}</a>`;
+            const refTarget = ref.getAttribute('href');
+            if (refTarget.indexOf('table:') === 0) {
+                const index = tableLabelIndexMap[refTarget];
+                if (index) {
+                    ref.innerHTML = `<a href="#${refTarget}">Table&nbsp;${index}</a>`;
+                }
+            } else if (refTarget.indexOf('info:') === 0) {
+                ref.innerHTML += '<i class="fas fa-info-circle"></i>';
+                ref.addEventListener('click', () => {
+                    const infoDiv = document.querySelector(`info[label='${refTarget}']`).cloneNode(true);
+                    this.infoPanel.open(infoDiv.getAttribute('title'), infoDiv);
+                });
             }
         });
     }
@@ -214,5 +223,5 @@ class Section {
     toLink() {
         return `<a href="#toc${this.indexPath}">${this.toString()}</a>`;
     }
-    
+
 }

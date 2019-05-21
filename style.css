@@ -233,12 +233,12 @@ h2 {
     cursor: pointer;
 }
 
-a {
+a, ref {
     color: var(--font-color-light);
     text-decoration: none;
 }
 
-a:hover {
+a:hover, ref:hover {
     color: black;
     text-decoration: underline;
     cursor: pointer;
@@ -279,6 +279,19 @@ marginal {
     font-family: var(--font-handwritten);
     z-index: -1;
     font-size: 1.0em;
+}
+
+#main info {
+    display: none;
+}
+
+#info info {
+    display: block;
+    font-size: var(--font-small);
+}
+
+i {
+    padding: 0 0.2em;
 }
 
 .generated {

@@ -1,4 +1,3 @@
-
 const generatedWordStatisticsExample = {
     generate() {
         generatedDiv = document.createElement('div');

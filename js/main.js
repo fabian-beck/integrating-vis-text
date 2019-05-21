@@ -8,13 +8,6 @@ const generatedWordStatisticsExample = {
     }
 }
 
-documentObject.createAndApply();
+const myDocument = new MyDocument();
 
 generatedWordStatisticsExample.generate();
-
-bibManager.createListOfReferences();
-
-tableReferenceManager.updateTableReferences();
-bibManager.updateCitations();
-
-headerObject.initStickyHeader();

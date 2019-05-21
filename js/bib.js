@@ -114,7 +114,7 @@ const bibManager = function () {
                 const index = Object.keys(references).indexOf(referenceKey) + 1;
                 if (index) {
                     cit.addEventListener('click', function () {
-                        infoPanel.open('Reference',createLongReference(referenceKey, index));
+                        myDocument.infoPanel.open('Reference',createLongReference(referenceKey, index));
                     });
                     cit.innerHTML = `<a>[${index}]</a>`;
                 }

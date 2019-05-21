@@ -219,8 +219,9 @@ h2 {
     margin-top: 1.5em;
 }
 
-p, li {
+#main p, #main li {
     text-align: justify;
+    margin: 1em 0;
 }
 
 .button {
@@ -291,19 +292,19 @@ marginal {
     float: right;
 }
 
-ol.references {
+#main ol.references {
     counter-reset: references;
     padding-left: 0;
     font-size: var(--font-small);
 }
 
-ol.references li {
+#main ol.references li {
     margin: 0.5em 0;
     display: block;
     margin-left: 2em;
 }
 
-ol.references li::before {
+#main ol.references li::before {
     display: inline-block;
     counter-increment: references;
     content: '['counter(references)'] ';

@@ -1,18 +1,21 @@
 class MyDocument {
 
     constructor() {
-        this.sectionHierarchy = new SectionHierarchy();
-        const sideLayoutContainer = document.createElement('div');
-        sideLayoutContainer.id = 'sideLayoutContainer';
-        this.headerPanel = new HeaderPanel();
-        const headerDiv = this.headerPanel.toHtml();
-        sideLayoutContainer.append(headerDiv);
-        sideLayoutContainer.append(this.sectionHierarchy.toTableOfContents());
-        this.infoPanel = new InfoPanel();
-        sideLayoutContainer.append(this.infoPanel.toHtml());
-        headerDiv.appendChild(this.infoPanel.createHeader());
-        document.body.prepend(sideLayoutContainer);
+
+        this.sideLayoutContainer = document.createElement('div');
+        this.sideLayoutContainer.id = 'sideLayoutContainer';
+        document.body.prepend(this.sideLayoutContainer);
+
         document.body.prepend(new Title().toHtml());
+
+        this.sectionHierarchy = new SectionHierarchy();
+        this.tableOfContentsPanel = new TableOfContentsPanel(this.sectionHierarchy);
+        this.infoPanel = new InfoPanel();
+        this.headerPanel = new HeaderPanel();
+        const headerDiv = this.headerPanel.toHtml(this.tableOfContentsPanel.createHeader(), this.infoPanel.createHeader());
+        this.sideLayoutContainer.append(headerDiv);
+        this.sideLayoutContainer.append(this.tableOfContentsPanel.toHtml());
+        this.sideLayoutContainer.append(this.infoPanel.toHtml());
 
         this.updateReferences();
         bibManager.createListOfReferences();
@@ -79,10 +82,12 @@ class Title {
 
 class HeaderPanel {
 
-    toHtml() {
+    toHtml(tocHeaderDiv, infoHeaderDiv) {
         const headerDiv = document.createElement('div');
         headerDiv.id = 'header';
         headerDiv.innerHTML = '<div id="headerTitle"></div>';
+        headerDiv.appendChild(tocHeaderDiv);
+        headerDiv.appendChild(infoHeaderDiv);
         return headerDiv;
     }
 
@@ -99,6 +104,7 @@ class HeaderPanel {
             header.classList.add('sticky');
             main.classList.add('sticky');
             headerTitle.innerHTML = document.title;
+            tocHeader.classList.add('sticky');
             infoHeader.classList.add('sticky');
             toc.style.visibility = 'visible';
             info.style.visibility = 'visible';
@@ -106,6 +112,7 @@ class HeaderPanel {
             header.classList.remove('sticky');
             main.classList.remove('sticky');
             headerTitle.innerHTML = '';
+            tocHeader.classList.remove('sticky');
             infoHeader.classList.remove('sticky');
             toc.style.visibility = 'hidden';
             info.style.visibility = 'hidden';
@@ -150,6 +157,39 @@ class InfoPanel {
 
 }
 
+class TableOfContentsPanel {
+
+    constructor(sectionHierarchy) {
+        this.sectionHierarchy = sectionHierarchy;
+    }
+
+    toHtml() {
+        const tocDiv = document.createElement('div');
+        tocDiv.id = 'toc';
+        tocDiv.appendChild(this.sectionHierarchy.rootSection.toTableOfContents());
+        return tocDiv;
+    }
+
+    createHeader() {
+        const tocHeaderDiv = document.createElement('div');
+        tocHeaderDiv.id = 'tocHeader';
+        const tocToggleButtonDiv = document.createElement('div');
+        tocToggleButtonDiv.id = 'tocToggleButton';
+        tocToggleButtonDiv.classList.add('button');
+        tocToggleButtonDiv.innerHTML = '<i class="fas fa-list"></i>';
+        tocHeaderDiv.appendChild(tocToggleButtonDiv);
+        const tocHeaderTitleDiv = document.createElement('div');
+        tocHeaderTitleDiv.id = 'tocTitle';
+        tocHeaderTitleDiv.innerHTML = 'Table of Contents';
+        tocHeaderDiv.appendChild(tocHeaderTitleDiv);
+        tocHeaderDiv.addEventListener('click', function () {
+            toc.style.display = (!toc.style.display || toc.style.display === 'none') ? 'block' : 'none';
+        });
+        return tocHeaderDiv;
+    }
+
+}
+
 class SectionHierarchy {
 
     constructor() {
@@ -174,13 +214,6 @@ class SectionHierarchy {
             sectionHeader.innerHTML = `${currentSection.toString()}`;
             indexCounter++;
         });
-    }
-
-    toTableOfContents() {
-        const tocDiv = document.createElement('div');
-        tocDiv.id = 'toc';
-        tocDiv.appendChild(this.rootSection.toTableOfContents());
-        return tocDiv;
     }
 
 }

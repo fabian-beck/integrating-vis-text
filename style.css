@@ -4,7 +4,7 @@
     --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
     --panel-border: 2px solid white;
     --header-height: 2.0em;
-    --toc-width: 14vw;
+    --toc-width: 16vw;
     --info-width: 25vw;
     --main-padding: 1em;
     --font-small: 0.9em;
@@ -58,6 +58,43 @@ body {
     text-align: center;
 }
 
+#tocHeader {
+    visibility: hidden;
+}
+
+#tocHeader.sticky {
+    position: relative;
+    top: -1.2em;
+    padding-right: 0.2em;
+    background-color: var(--bg-color);
+    visibility: visible;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    height: var(--header-height);
+    left: 0;
+    width: var(--toc-width);
+    padding: 0.2em 1em;
+    border-right: var(--panel-border);
+    border-bottom: var(--panel-border);
+    color: var(--font-color-light);
+}
+
+#tocHeader.sticky:hover {
+    color: black;
+    cursor: pointer;
+}
+
+#tocToggleButton {
+    float: left;
+    padding-right: 0.5em;
+    color: inherit;
+}
+
+#tocHeaderTitle {
+    float: left;
+}
+
 #toc {
     box-sizing: border-box;
     position: fixed;
@@ -70,6 +107,7 @@ body {
     box-shadow: var(--panel-shadow);
     border-right: var(--panel-border);
     visibility: hidden;
+    display: none;
 }
 
 #toc h1 {
@@ -202,6 +240,7 @@ body {
 }
 
 /* Extra space for content when header gets sticky (so that text does not jump)*/
+
 #main.sticky {
     padding-top: calc(var(--header-height) + var(--main-padding));
 }
@@ -227,8 +266,8 @@ h2 {
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -o-hyphens: auto;
-    word-break:break-word;
-    hyphens: auto;   
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .button {
@@ -334,12 +373,18 @@ i {
 }
 
 @media screen and (max-width: 1400px) {
-    #toc {
+    #tocHeader.sticky {
+        width: 3em;
+    }
+    #tocTitle {
         display: none;
+    }
+    #toc {
+        width: 18em;
     }
     marginal {
         display: none;
-    }   
+    }
     #infoHeader.sticky, #info {
         width: calc(2 * var(--info-width));
         left: calc(100% - 2 * var(--info-width));
@@ -347,8 +392,13 @@ i {
 }
 
 @media screen and (max-width: 700px) {
+    #headerTitle {
+        float: left;
+        text-align: left;
+        padding-left: 3.5em;
+    }
     #toc {
-        display: none;
+        max-width: 80vw;
     }
     #infoHeader.sticky, #info {
         left: 0;

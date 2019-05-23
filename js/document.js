@@ -209,7 +209,7 @@ class SectionHierarchy {
                 parentSection = currentSection.parentSection.parentSection;
                 previousLevel = level;
             }
-            currentSection = new Section(indexCounter, sectionHeader.innerHTML, parentSection);
+            currentSection = new Section(indexCounter, sectionHeader.innerHTML, parentSection, !sectionHeader.classList.contains('noNumbering'));
             sectionHeader.id = `toc${currentSection.indexPath}`;
             sectionHeader.innerHTML = `${currentSection.toString()}`;
             indexCounter++;
@@ -220,12 +220,13 @@ class SectionHierarchy {
 
 class Section {
 
-    constructor(index, title, parentSection) {
+    constructor(index, title, parentSection, numbering) {
         this.title = title;
         this.index = index;
         this.indexPath = (parentSection && parentSection.index ? `${parentSection.index}.` : '') + String(index);
         this.level = parentSection ? parentSection.level + 1 : 0;
         this.parentSection = parentSection;
+        this.numbering = numbering;
         this.childSections = [];
         if (parentSection) {
             parentSection.childSections.push(this);
@@ -250,7 +251,10 @@ class Section {
     }
 
     toString() {
-        return `${this.indexPath} ${this.title}`;
+        if (this.numbering) {
+            return `${this.indexPath} ${this.title}`;
+        }
+        return this.title;
     }
 
     toLink() {

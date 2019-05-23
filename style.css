@@ -20,6 +20,20 @@ body {
     max-width: 100vw!;
 }
 
+body::before {
+    content: "DRAFT";
+    position: fixed;
+    font-size: 20em;
+    z-index: -1;
+    color: #EEE;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    vertical-align: center;
+    padding-top: 0.5em;
+    transform: rotate(-30deg);
+}
+
 #titleContainer {
     font-size: 1.5em;
     text-align: center;

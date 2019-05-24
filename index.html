@@ -40,12 +40,12 @@
         <marginal>Is the book for you?</marginal>
         <p>This book is written for everybody being interested in <em>how to effectively communicate data and information as part of documents</em> beyond what is the state of the art currently. The book is not targeted at novelists and poets, but at authors of data-related texts such as data reports, papers, and news stories, at designers and developers of user interfaces and authoring systems, and at researchers from diverse fields not limited to human-computer interaction, visualization, scientific communication, data-driven journalism, and media science. <ref href="info:author">I am a computer scientist and visualization researcher</ref>, hence, the book has a certain technical and a specific research perspective, but I am trying to address a broader scope.</p>
 
-        <info title="About the Author" label="info:author">Fabian Beck is an assistant professor at the University of Duisburg-Essen, where he leads a research group on visualization.</info>
+        <info title="About the Author" data-label="info:author">Fabian Beck is an assistant professor at the University of Duisburg-Essen, where he leads a research group on visualization.</info>
 
         <marginal>Attention: <br />it's an interactive book! Try it out and send feedback.</marginal>
         <p>I am using the book also as a testbed for designing a truly interactive publication. For instance, it countains additional explanations that you can view on demand such as this short list of available interactions that you can show by clicking on the following <ref href="info:interactions">info icon</ref> ...</p>
 
-        <info title="Available Interactions" label="info:interactions">
+        <info title="Available Interactions" data-label="info:interactions">
             <p>This is an interactive document. All interactive elements <a onclick="alert('Yes, this is also an interactive element, but I could not find a meaningful reaction. So, you just see this notification.');">are highlighted with color</a>. Among other, the following interactions are available:</p>
             <ul>
                 <li>You can click on info icons to open detailed explanations&mdash;ok, you already discovered this, else you would not see this description.</li>
@@ -227,9 +227,15 @@
 
         <h2>Conversational Interfaces</h2>
 
+        <marginal>Talk to me!</marginal>
         <p>Chatbots and the like ...</p>
 
-        <p><em>Wolfram|Alpha</em></p>
+        <p>Web search interfaces are moving in this direction. For instance, <em>Wolfram|Alpha</em> is a data-oriented search engine ... <ref href="fig:wolframalpha_world_population"></ref> shows an example ... It is interesting to observe that the result contains both of visualization and more text-oriented data representations. Whereas the textual content takes more the form of lists and tables, natural language generation would be the next logical step to answer the posed answer directly.</p>
+
+        <figure data-label="fig:wolframalpha_world_population">
+            <img src="img/wolframalpha_world_population.png"></img>
+            <figcaption><em>Wolfram|Alpha</em> interface showing an answer to the query &ldquo;Is the world population growing?&rdquo;; the answer contains the numeric answer, a line plot of the historic development, and a table with contextual information.<p class="info-only"> Source: <a href="https://www.wolframalpha.com">https://www.wolframalpha.com/</a>, retrieved May 24, 2019.</p></figcaption>
+        </figure>
 
         <h1>Conclusion</h1>
 

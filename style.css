@@ -5,7 +5,7 @@
     --panel-border: 2px solid white;
     --header-height: 2.0em;
     --toc-width: 16vw;
-    --info-width: 25vw;
+    --info-width: 27vw;
     --main-padding: 1em;
     --font-small: 0.9em;
     --font-tiny: 0.83em;
@@ -144,6 +144,7 @@ body::before {
 }
 
 #toc li {
+    margin: 0;
     text-align: left;
     text-indent: -1em;
     padding-left: 1em;
@@ -247,6 +248,14 @@ body::before {
     font-style: normal;
 }
 
+.info-only {
+    display: none;
+}
+
+#info .info-only {
+    display: initial;
+}
+
 #main {
     margin: 1em auto;
     max-width: 40em;
@@ -257,6 +266,20 @@ body::before {
 
 #main.sticky {
     padding-top: calc(var(--header-height) + var(--main-padding));
+}
+
+h1, h2, h3, p, ul, figure, table {
+    clear: both;
+}
+
+p, li, caption, figcaption {
+    text-align: justify;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+p, li {
+    margin: 1em 0;
 }
 
 h1 {
@@ -271,13 +294,6 @@ h2 {
     font-size: 1.2em;
     font-weight: normal;
     margin-top: 1.5em;
-}
-
-#main p, #main li {
-    text-align: justify;
-    margin: 1em 0;
-    word-break: break-word;
-    hyphens: auto;
 }
 
 .button {
@@ -298,6 +314,37 @@ a:hover, ref:hover {
     color: black;
     text-decoration: underline;
     cursor: pointer;
+}
+
+#main figure {
+    margin: 0;
+    border-left: 6px solid var(--color-interactive);
+    overflow: auto;
+    padding: 0.5em;
+}
+
+#main figure:hover {
+    border-color: black;
+    cursor: pointer;
+    background-color: var(--light-bg-color);
+}
+
+#main figure img {
+    width: 35%;
+    float: left;
+}
+
+#main figure figcaption {
+    float: right;
+    width: 63%;
+}
+
+#info figure {
+    margin: 0;
+}
+
+#info figure img {
+    width: 100%;
 }
 
 table {

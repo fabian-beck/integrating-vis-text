@@ -25,6 +25,53 @@ class MyDocument {
     }
 
     updateReferences() {
+        const figureLabelIndexMap = this.indexFigures();
+        const tableLabelIndexMap = this.indexTables();
+        document.querySelectorAll('ref').forEach(ref => {
+            const refTarget = ref.getAttribute('href');
+            if (refTarget.indexOf('fig:') === 0) {
+                const index = figureLabelIndexMap[refTarget];
+                if (index) {
+                    ref.innerHTML = `<a>Figure&nbsp;${index}</a>`;
+                    ref.addEventListener('click', () => {
+                        const figDiv = document.querySelector(`figure[data-label='${refTarget}']`).cloneNode(true);
+                        this.infoPanel.open(`Figure ${index}`, figDiv);
+                    });
+                }
+            } else if (refTarget.indexOf('table:') === 0) {
+                const index = tableLabelIndexMap[refTarget];
+                if (index) {
+                    ref.innerHTML = `<a href="#${refTarget}">Table&nbsp;${index}</a>`;
+                }
+            } else if (refTarget.indexOf('info:') === 0) {
+                ref.innerHTML += '<i class="fas fa-info-circle"></i>';
+                ref.addEventListener('click', () => {
+                    const infoDiv = document.querySelector(`info[data-label='${refTarget}']`).cloneNode(true);
+                    this.infoPanel.open(infoDiv.getAttribute('title'), infoDiv);
+                });
+            }
+        });
+    }
+
+    indexFigures() {
+        let figureCount = 0;
+        const figureLabelIndexMap = {};
+        document.querySelectorAll('figure').forEach(figure => {
+            const caption = figure.querySelector('figcaption');
+            if (caption) {
+                figureCount++;
+                const label = figure.getAttribute('data-label');
+                caption.innerHTML = `<a id="${label}"></a><b>Figure ${figureCount}:</b> ${caption.innerHTML}`;
+                figureLabelIndexMap[label] = figureCount;
+            }
+            figure.addEventListener('click', () => {
+                myDocument.infoPanel.open(`Figure ${figureCount}`, figure.cloneNode(true));
+            });
+        });
+        return figureLabelIndexMap;
+    }
+
+    indexTables() {
         let tableCount = 0;
         const tableLabelIndexMap = {};
         document.querySelectorAll('table').forEach(table => {
@@ -36,21 +83,7 @@ class MyDocument {
                 tableLabelIndexMap[label] = tableCount;
             }
         });
-        document.querySelectorAll('ref').forEach(ref => {
-            const refTarget = ref.getAttribute('href');
-            if (refTarget.indexOf('table:') === 0) {
-                const index = tableLabelIndexMap[refTarget];
-                if (index) {
-                    ref.innerHTML = `<a href="#${refTarget}">Table&nbsp;${index}</a>`;
-                }
-            } else if (refTarget.indexOf('info:') === 0) {
-                ref.innerHTML += '<i class="fas fa-info-circle"></i>';
-                ref.addEventListener('click', () => {
-                    const infoDiv = document.querySelector(`info[label='${refTarget}']`).cloneNode(true);
-                    this.infoPanel.open(infoDiv.getAttribute('title'), infoDiv);
-                });
-            }
-        });
+        return tableLabelIndexMap;
     }
 
 }

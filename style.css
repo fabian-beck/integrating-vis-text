@@ -316,6 +316,10 @@ a:hover, ref:hover {
     cursor: pointer;
 }
 
+#main img {
+    width: 100%;
+}
+
 #main figure {
     margin: 0;
     border-left: 6px solid var(--color-interactive);

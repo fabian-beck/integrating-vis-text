@@ -435,6 +435,15 @@ i {
     margin-left: -2em;
 }
 
+.incomplete {
+    background-color: rgba(255, 0, 0, 0.253);
+    display: none;
+}
+
+marginal.incomplete {
+    color: rgba(190, 1, 1, 0.603);
+}
+
 @media screen and (max-width: 1400px) {
     body::before {
         font-size: 8em;

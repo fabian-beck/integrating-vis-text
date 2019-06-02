@@ -22,6 +22,10 @@ class MyDocument {
         bibManager.updateCitations();
 
         this.headerPanel.initStickyHeader();
+
+        if (debugMode) {
+            document.querySelectorAll('.incomplete').forEach(element => { element.style.display = 'block' });
+        }
     }
 
     updateReferences() {

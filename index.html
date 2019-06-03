@@ -28,34 +28,42 @@
         <img alt="Illustrating diagram showing that information can be represented as data visualization or text" src="img/information_vis_text.svg">
 
         <marginal>Integrated visualization and text can make a difference</marginal>
-        <p>The way of encoding might be different but a visualization and a text are hence similar in the sense that they both convey information to a human reader. Often, they are combined and complement each other as part of documents, user interfaces, presentation slides and the like. While this complementing similarity is certainly not a new observation, it still remains surprising to me how little the combination and close integration of the two modalities have been investigated. I believe we can do much more than just placing the visualization next to the text, like in a traditional research paper or printed news article. With this book, I want to explore possibilities for a better integration:</p>
+        <p>The way of encoding might be different but a visualization and a text are hence similar in the sense that they both convey information to a human reader. Often, they are combined and complement each other as part of documents, user interfaces, presentation slides, and the like. While this complementing similarity is certainly not a new observation, it still remains surprising to me how little the combination and close integration of the two modalities have been investigated. I believe we can do much more than just placing the visualization next to the text, like in a traditional research paper or printed news article. With this book, I want to explore possibilities for a better integration:</p>
 
         <marginal>This is also the outline of the book.</marginal>
         <ul>
             <li>How <em>graphics at the size of word</em> can be embedded in line with the text.</em></li>
             <li>How <em>interactive documents</em> can connect visualizations and related text fragments.</li>
             <li>How <em>text that is automatically generated</em> integrates with visualization.</li>
-            <li>How other types of text such as <em>source code becomes visually agumentated</em>.</li>
-            <li>How <em>interactive systems</em> might leverage integrated designs of text and viualization.</li>
+            <li>How other types of text such as <em>source code becomes visually augmented</em>.</li>
+            <li>How <em>interactive systems</em> might leverage integrated designs of text and visualization.</li>
         </ul>
 
         <marginal>Is the book for you?</marginal>
         <p>This book is written for everybody being interested in <em>how to effectively communicate data and information as part of documents</em> beyond what is the state of the art currently. The book is not targeted at novelists and poets, but at authors of data-related texts such as data reports, papers, and news stories, at designers and developers of user interfaces and authoring systems, and at researchers from diverse fields not limited to human-computer interaction, visualization, scientific communication, data-driven journalism, and media science. <ref href="info:author">I am a computer scientist and visualization researcher</ref>, hence, the book has a certain technical and a specific research perspective, but I am trying to address a broader scope.</p>
 
-        <info title="About the Author" data-label="info:author">Fabian Beck is an assistant professor at the University of Duisburg-Essen, where he leads a research group on visualization.</info>
+        <info title="About the Author and this Book" data-label="info:author">
+            <p>My name is Fabian Beck. I am an <a href="https://www.vis.wiwi.uni-due.de/en/team/fabian-beck/">assistant professor at the University of Duisburg-Essen</a>, where I lead a <a href="https://www.vis.wiwi.uni-due.de/en/">research group on visualization</a>. In 2018, I received the EuroVis Young Researcher Award and became Junior Fellow of Eurographics. My research focuses on information visualization, software visualization, and visual analytics. With my work, I want to make complex data analysis more accessible and understandable, both for professionals as well as the broad public.</p>
 
-        <marginal class="incomplete">Attention: <br />it's an interactive book! Try it out and send feedback.</marginal>
-        <p class="incomplete">I am using the book also as a testbed for designing a truly interactive publication. For instance, it countains additional explanations that you can view on demand such as this short list of available interactions that you can show by clicking on the following <ref href="info:interactions">info icon</ref> ...</p>
+            <p>The ideas that have influenced the book go back some time. Since my early research projects, I am interested in supporting software developers with data visualizations. I realized that all additional data that can be represented always needs to be well integrated with what usually is their main focus of work: the source code. This made me curious how to best integrate visualizations with source code. It turned out, however, that the question is also relevant for a much broader scope, namely, the integration of visualization with natural language texts. I first start at word-sized embeddings of visualization and interactions that better integrate these. However, the mismatch was that the text still needed to be written manually while the visualizations could be generated automatically. Hence, looking into the automatic generation of text along with the visualizations was the logical next step.</p>
+        </info>
+
+        <marginal>Attention: <br />it's an interactive book! Try it out and send feedback.</marginal>
+        <p>I am using the book also as a testbed for designing a truly interactive publication. For instance, it contains additional explanations that you can view on demand such as this short list of available interactions that you can show by clicking on the following <ref href="info:interactions">info icon</ref>. All interactive elements&mdash;within text, tables, and figures&mdash;are marked in this color.</p>
+
+        <p>If you have any comments on the content or the interactive elements of this book, please send <a>feedback</a>. I would highly appreciate this to learn if my experiments follow a good direction.</p>
 
         <info title="Available Interactions" data-label="info:interactions">
             <p>This is an interactive document. All interactive elements <a onclick="alert('Yes, this is also an interactive element, but I could not find a meaningful reaction. So, you just see this notification.');">are highlighted with color</a>. Among other, the following interactions are available:</p>
             <ul>
+                <li>There is an interactive table of contents on the left.</li>
                 <li>You can click on info icons to open detailed explanations&mdash;ok, you already discovered this, else you would not see this description.</li>
-                <li>References can be viewed in this side panel by clicking on them. ...</li>
-                <li>Sections and reference can be browsed by keywords/index terms ...</li>
-                <li>Graphics are interactive ..., word-sized graphics can be enlarged and get enriched with details when clicking on them.</li>
-                <li>Interactive links between graphics and text ...</li>
-                <li>Search ...</li>
+                <li>References can be viewed in this side panel by clicking on them.</li>
+                <li>Figures can be enlarged by clicking on the respective thumbnail figure representation.</li>
+                <li class="incomplete">Sections and reference can be browsed by keywords/index terms ...</li>
+                <li class="incomplete">Graphics are interactive ..., word-sized graphics can be enlarged and get enriched with details when clicking on them.</li>
+                <li class="incomplete">Interactive links between graphics and text ...</li>
+                <li class="incomplete">Search ...</li>
             </ul>
         </info>
 
@@ -236,7 +244,8 @@
 
         <figure data-label="fig:wolframalpha_world_population">
             <img src="img/wolframalpha_world_population.png"></img>
-            <figcaption><em>Wolfram|Alpha</em> interface showing an answer to the query &ldquo;Is the world population growing?&rdquo;; the answer contains the numeric answer, a line plot of the historic development, and a table with contextual information.<p class="info-only"> Source: <a href="https://www.wolframalpha.com">https://www.wolframalpha.com/</a>, retrieved May 24, 2019.</p></figcaption>
+            <figcaption><em>Wolfram|Alpha</em> interface showing an answer to the query &ldquo;Is the world population growing?&rdquo;; the answer contains the numeric answer, a line plot of the historic development, and a table with contextual information.<p class="info-only"> Source: <a href="https://www.wolframalpha.com">https://www.wolframalpha.com/</a>, retrieved May 24, 2019.</p>
+            </figcaption>
         </figure>
 
         <h1>Conclusion</h1>

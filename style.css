@@ -1,7 +1,9 @@
 :root {
-    --bg-color: rgb(255, 236, 206);
-    --light-bg-color: rgb(252, 249, 239);
+    --bg-color: #E28E8E;
+    --light-bg-color: rgb(233, 240, 240);
     --panel-shadow: 0 1em 2em rgba(0, 0, 0, 0.05);
+    --color-interactive: rgb(172, 12, 12);
+    --color-annotation: #59B2B2;
     --panel-border: 2px solid white;
     --header-height: 2.0em;
     --toc-width: 16vw;
@@ -9,7 +11,6 @@
     --main-padding: 1em;
     --font-small: 0.9em;
     --font-tiny: 0.83em;
-    --color-interactive: rgb(179, 106, 46);
     --font-handwritten: 'Architects Daughter', cursive;
 }
 
@@ -37,18 +38,27 @@ body::before {
 #titleContainer {
     font-size: 1.5em;
     text-align: center;
-    background-color: var(--light-bg-color);
+    background-image: url("layout/title.png");
     padding: 2em;
 }
 
 #title {
     font-size: 1.5em;
-    margin-bottom: 0.6em;
+    padding-top: 0.3em;
+    padding-bottom: 0.6em;
+}
+
+#titleContainer div {
+    background-color: rgba(255,255,255,0.7);
 }
 
 #documentDescription {
     padding-bottom: 2em;
     font-family: var(--font-handwritten);
+}
+
+#author {
+    padding-bottom: 0.3em;
 }
 
 #header {
@@ -285,9 +295,23 @@ p, li {
 h1 {
     font-size: 1.6em;
     font-weight: normal;
-    padding-top: 3.5em;
+    padding-top: 7em;
     margin-bottom: 1em;
-    border-bottom: 1px solid black;
+    position: relative;
+    left: -5em;
+    z-index: -1;
+}
+
+h1::before {
+    display: block;
+    float: left;
+    content: "";
+    width: 5em;
+    height: 5em;
+    left: -1em;
+    top: -3.5em;
+    position: relative;
+    background-image: url("layout/title.png");
 }
 
 h2 {
@@ -373,7 +397,7 @@ table th, table td {
 }
 
 marginal {
-    color: rgb(39, 102, 185);
+    color: var(--color-annotation);
     position: relative;
     max-height: 0;
     left: -10em;

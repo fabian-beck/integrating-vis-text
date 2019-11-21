@@ -17,6 +17,8 @@ class MyDocument {
         this.sideLayoutContainer.append(this.tableOfContentsPanel.toHtml());
         this.sideLayoutContainer.append(this.infoPanel.toHtml());
 
+        new FigureIntroIllustrating();
+
         this.updateReferences();
         bibManager.createListOfReferences();
         bibManager.updateCitations();

@@ -468,6 +468,10 @@ marginal.incomplete {
     color: rgba(190, 1, 1, 0.603);
 }
 
+svg rect.textbox {
+    fill: rgba(0, 0, 0, 0.05);
+}
+
 @media screen and (max-width: 1400px) {
     body::before {
         font-size: 8em;
